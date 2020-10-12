@@ -1,18 +1,22 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: maha-rc
+  name: myjavaapp-rc
 spec:
-  replicas: 3
+  replicas: 2
   selector:
-    app: mahaapp
+    app: myjavaapp
+    version: 2.7.1
   template:
     metadata:
       labels:
-        app: mahaapp
+        app: myjavaapp
+        version: 2.7.1
     spec:
       containers:
-      - name: maha-java-container
+      - name:  my-java-container
         image: maha4iac/mymahaapp:1
         ports:
         - containerPort: 8080
+
+      
